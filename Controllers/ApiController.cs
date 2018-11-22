@@ -19,8 +19,11 @@ namespace SportsStore.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Product> Get()
-            => _repositroy.Products;
+        public IEnumerable<Product> Get() 
+        {
+            System.Console.Clear();
+            return _repositroy.Products;
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddProduct(
