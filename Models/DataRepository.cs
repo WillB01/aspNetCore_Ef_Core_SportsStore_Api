@@ -21,6 +21,23 @@ namespace SportsStore.Models
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
         }
-            
+
+        public async Task<Product> GetProduct(long key) => await _context.Products.FindAsync(key);
+
+        public async Task UpdateProduct(Product product)
+        {
+            var p = await GetProduct(product.Id);
+            p.Name = product.Name;
+            p.Category = product.Category;
+            p.RetailPrice = product.RetailPrice;
+
+            //_context.Products.Update(product);
+            await _context.SaveChangesAsync();
+        }
+
+
+
+
+
     }
 }

@@ -11,5 +11,9 @@ namespace SportsStore.Interfaces
         IEnumerable<Product> Products { get; }
 
         Task AddProduct(Product product);
+
+        Task<Product> GetProduct(long key);
+
+        Task UpdateProduct(Product product);
     }
 }
