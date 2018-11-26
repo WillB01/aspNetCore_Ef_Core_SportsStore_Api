@@ -15,5 +15,7 @@ namespace SportsStore.Interfaces
         Task<Product> GetProduct(long key);
 
         Task UpdateProduct(Product product);
+
+        Task DeleteProduct(long key);
     }
 }

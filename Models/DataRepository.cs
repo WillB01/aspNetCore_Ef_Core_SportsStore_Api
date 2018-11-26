@@ -35,6 +35,14 @@ namespace SportsStore.Models
             await _context.SaveChangesAsync();
         }
 
+        public async Task DeleteProduct(long key)
+        {
+            var getItemToBeRemoved = await GetProduct(key);
+            _context.Remove(getItemToBeRemoved);
+            await _context.SaveChangesAsync();
+            
+        }
+
 
 
 

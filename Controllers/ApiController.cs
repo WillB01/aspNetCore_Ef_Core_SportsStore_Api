@@ -43,11 +43,18 @@ namespace SportsStore.Controllers
             return Ok(data);
         }
 
-        [HttpPost()]
+        [HttpPost]
         public async Task<IActionResult> UpdateProduct([FromQuery] Product product)
         {
    
             await _repositroy.UpdateProduct(product);
+            return RedirectToAction(nameof(Get));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete([FromQuery] long key)
+        {
+            await _repositroy.DeleteProduct(key);
             return RedirectToAction(nameof(Get));
         }
     }
